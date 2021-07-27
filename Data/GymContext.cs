@@ -9,7 +9,8 @@ namespace SoftwareIntegrationThirdVersion.Data
         {
         }
 
-        public DbSet<Exercise> Exercises { get; set; }
         public DbSet<Gym> Gyms { get; set; }
+
+        public DbSet<Exercise> Exercises { get; set; }
     }
 }
