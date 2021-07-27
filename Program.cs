@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 using SoftwareIntegrationThirdVersion.Data;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,22 @@ namespace SoftwareIntegrationThirdVersion
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+
+
+        }
+
+        private static void CreateDbIfNotExists(IHost host)
+        {
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var context = services.GetRequiredService<GymContext>();
+                    
+                }
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
