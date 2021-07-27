@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using SoftwareIntegrationThirdVersion.Data;
 using System;
 using System.Collections.Generic;
@@ -18,7 +17,9 @@ namespace SoftwareIntegrationThirdVersion
         {
             var host = CreateHostBuilder(args).Build();
 
+            CreateDbIfNotExists(host);
 
+            host.Run();
         }
 
         private static void CreateDbIfNotExists(IHost host)
@@ -29,7 +30,12 @@ namespace SoftwareIntegrationThirdVersion
                 try
                 {
                     var context = services.GetRequiredService<GymContext>();
-                    
+                    DbInitializer.Initialize(context);
+                }
+                catch(Exception e)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(e, "Ha ocurrido un error al crear la base de datos.");
                 }
             }
         }

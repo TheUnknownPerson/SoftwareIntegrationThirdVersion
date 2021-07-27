@@ -27,8 +27,6 @@ namespace SoftwareIntegrationThirdVersion.Data
                 context.Exercises.Add(e);
             }
             context.SaveChanges();
-
-
         }
     }
 }
