@@ -10,6 +10,23 @@ namespace SoftwareIntegrationThirdVersion.Data
         {
             context.Database.EnsureCreated();
 
+            if (context.Gyms.Any())
+            {
+                return;
+            }
+
+            var gyms = new Gym[]
+            {
+                new Gym{gymName="Sport Life",gymAddress="Puerto Varas"},
+                new Gym{gymName="Pacific Fitness",gymAddress="Santiago"}
+            };
+
+            foreach(Gym g in gyms)
+            {
+                context.Gyms.Add(g);
+            }
+            context.SaveChanges();
+
             if (context.Exercises.Any())
             {
                 return;
