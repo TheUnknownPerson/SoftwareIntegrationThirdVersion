@@ -7,16 +7,16 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Agregar nuevo gimnasio</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.gymName)
+                Nombre de gimnasio
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.gymAddress)
+                Dirección del local
             </th>
             <th></th>
         </tr>
@@ -32,9 +32,9 @@
                     @Html.DisplayFor(modelItem => item.gymAddress)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.gymId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.gymId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.gymId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.gymId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.gymId">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.gymId">Eliminar</a>
                 </td>
             </tr>
         }

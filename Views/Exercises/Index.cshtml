@@ -7,22 +7,22 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Agregar nuevo ejercicio</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.gymId)
+                Identificador de gimnasio
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.exerciseName)
+                Nombre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.exerciseDescription)
+                Descripción
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.exerciseDuration)
+                Duración
             </th>
             <th></th>
         </tr>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.exerciseDuration)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.exerciseId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.exerciseId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.exerciseId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.exerciseId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.exerciseId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.exerciseId">Borrar</a>
             </td>
         </tr>
 }
