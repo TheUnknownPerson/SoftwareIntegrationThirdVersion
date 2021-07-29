@@ -7,7 +7,5 @@ namespace SoftwareIntegrationThirdVersion.Models
         public int gymId { get; set; }
         public string gymName { get; set; }
         public string gymAddress { get; set; }
-
-        public ICollection<Gym> Gyms { get; set; }
     }
 }
